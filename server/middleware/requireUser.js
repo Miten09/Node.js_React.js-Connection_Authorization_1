@@ -15,7 +15,7 @@ module.exports = async = (req, res, next) => {
       accessToken,
       process.env.ACCESS_TOKEN_PRIVATE_KEY
     );
-    // console.log(decoded);
+
     req._id = decoded._id;
     next();
   } catch (err) {
