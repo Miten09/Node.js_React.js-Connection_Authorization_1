@@ -97,8 +97,8 @@ const refreshAccessTokenController = async (req, res) => {
     const accessToken = generateAccessToken({ _id });
 
     return res.send(success(201, { accessToken }));
-  } catch (err) {
-    console.log(err);
+  } catch (e) {
+    console.log(e);
     // return res.status(401).send("Invalid Refresh Token");
     return res.send(error(401, "Invalid Refresh Token"));
   }
@@ -108,7 +108,7 @@ const refreshAccessTokenController = async (req, res) => {
 const generateAccessToken = (data) => {
   try {
     const token = jwt.sign(data, process.env.ACCESS_TOKEN_PRIVATE_KEY, {
-      expiresIn: "15m",
+      expiresIn: "20s",
     });
     console.log(token);
     return token;

@@ -9,8 +9,8 @@ module.exports = async () => {
       useNewUrlParser: true,
     });
     console.log(`MongoDB connected : ${connect.connection.host}`);
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    console.log(e);
     process.exit(1);
   }
 };
